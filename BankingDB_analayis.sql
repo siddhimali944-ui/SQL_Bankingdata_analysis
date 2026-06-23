@@ -211,7 +211,7 @@ SELECT AccountID,
 FROM Accounts;
 SELECT AccountID,
        Balance,
-       RANK() OVER (ORDER BY Balance DESC) AS BalanceRank
+       RANK() OVER (ORDER BY Balance ASC) AS BalanceRank
 FROM Accounts;
 SELECT TransactionID,
        Amount,
@@ -221,12 +221,40 @@ SELECT TransactionID,
        Amount,
        AVG(Amount) OVER () AS AverageTransaction
 FROM Transactions;
-
-
- 
-
-
-
+SELECT* FROM customers
+WHERE Firstname LIKE 'A%' ; 
+SELECT* FROM customers
+WHERE Email LIKE 'gamil%' ;
+SELECT* FROM customers
+WHERE Lastname LIKE 'KAR%' ;
+SELECT* FROM Accounts
+WHERE AccountType IN ('Savings','Current');
+SELECT* FROM Transactions
+WHERE TransactionType IN ('Deposit','Withdrawl');
+SELECT *FROM Customers
+WHERE CustomerID IN (101,102,105);
+SELECT *FROM Customers
+ORDER BY LastName ASC;
+SELECT *FROM Accounts
+ORDER BY Balance DESC;
+SELECT *FROM Transactions
+ORDER BY TransactionDate DESC;
+SELECT *FROM Accounts
+ORDER BY Balance DESC
+LIMIT 5;
+ SELECT *FROM Customers
+LIMIT 3;
+SELECT *FROM Transactions
+LIMIT 5 OFFSET 3;
+SELECT *FROM Accounts
+WHERE AccountType = 'Savings'
+ORDER BY Balance DESC;
+SELECT *FROM Customers
+WHERE FirstName LIKE 'S%'
+LIMIT 5;
+SELECT *FROM Transactions
+WHERE TransactionType IN ('Deposit','Withdrawal')
+ORDER BY TransactionDate DESC; 
 
 
 
