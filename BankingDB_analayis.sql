@@ -255,6 +255,24 @@ LIMIT 5;
 SELECT *FROM Transactions
 WHERE TransactionType IN ('Deposit','Withdrawal')
 ORDER BY TransactionDate DESC; 
+SELECT SUM(Balance)  AS Total_Balance 
+FROM Accounts
+ WHERE AccountType = "Savings";
+ SELECT AVG(Balance) AS Total_Balance
+ FROM Accounts;
+ SELECT MAX(Balance) AS Total_Balnce
+ FROM Accounts;
+ SELECT MIN(Balance) AS Total_Balance
+ FROM Accounts;
+ SELECT COUNT(*) AS Total_Customer 
+ FROM Customers;
+SELECT AccountType, SUM(Balance) AS Total_Balance FROM Accounts GROUP BY AccountType;
+SELECT AccountType, MAX(Balance) AS Total_Balance From Accounts  Group BY AccountsType ;
+SELECT AccountType, SUM(Balance) AS Balance from Accounts 
+WHERE Balance >=25000;
+SELECT AccountType,SUM(Balance) AS TotalBalance FROM Accounts
+GROUP BY AccountType
+HAVING SUM(Balance) > 120000;
 
 
 
